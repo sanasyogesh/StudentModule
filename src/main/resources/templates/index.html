@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+</head>
+<body>
+
+	<form th:action="@{/newRegistration}" th:object="${student}" method="post">
+		<table border="1px">
+			<tr>
+				<td colspan="2" align="center">Registraion Form</td>				
+			</tr>
+			
+			<tr>
+				<td>Student First Name</td>
+				<td><input type="text" th:field="*{firstName}"/></td>
+			</tr>
+			
+			<tr>
+				<td>Student Last Name</td>
+				<td><input type="text" th:field="*{lastName}" /></td>
+			</tr>
+			
+			<tr>
+				<td>Gender</td>
+				<td>
+					<input type="radio" th:field="*{gender}" name="gender" value="male">Male
+					<input type="radio" th:field="*{gender}" name="gender" value="female">Female
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Student Education</td>
+				<td>
+					<select th:field="*{education}">
+						<option th:value="'SSC'" 		th:text="SSC">SSC</option>
+						<option th:value="'HSC'"		th:text="HSC">HSC</option>
+						<option th:value="'graduation'" th:text="graduation">Graduation</option>
+						<option th:value="'pg'" 		th:text="Post Graduation">Post Graduation</option>
+						<option th:value="'Ph.D'"		th:text="Ph.D">Ph.D</option>
+					</select>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Admission Stream</td>
+				<td>
+					<select id="stream" name="stream">
+						<option th:value="'Science'" 		th:text="Science">Science</option>
+						<option th:value="'Engineering'" 	th:text="Engineering">Engineering</option>
+						<option th:value="'Commerce'" 		th:text="Commerce">Commerce</option>
+						<option th:value="'Arts'" 			th:text="Arts">Arts</option>
+						<option th:value="'Diploma'"		th:text="Diploma">Diploma</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Address</td>
+				<td><input type="text" th:field="*{address}" id="address"></td>
+			</tr>
+			
+			<tr>
+				<td>Contact Number</td>
+				<td><input type="text" th:field="*{contactNumber}" id="contactNumber"></td>
+			</tr>
+		
+			<tr>
+				<td></td>
+				<td><input type="submit" th:value="Submit"></td>
+			</tr>
+		
+		
+		</table>
+	</form>
+</body>
+</html>
